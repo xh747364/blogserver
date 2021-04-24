@@ -1,15 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import * as mongoose from 'mongodb';
-import { ValidationPipe } from '@nestjs/common';
+// import * as mongoose from 'mongodb';
 async function bootstrap() {
-  mongoose.connect('mongodb://localhost/nest-blog-api', {
-    useNewUrlParser: true,
-  });
+  // mongoose.connect('mongodb://localhost:27017/nest-blog-api', {
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  // });
   const app = await NestFactory.create(AppModule);
-
-  app.useGlobalPipes(new ValidationPipe())
 
   const config = new DocumentBuilder()
     .setTitle('Nestjs博客api')
@@ -20,6 +18,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
 
-  await app.listen(3000);
+  await app.listen(2664);
 }
 bootstrap();
