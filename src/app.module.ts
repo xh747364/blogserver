@@ -8,7 +8,7 @@ import { TagsModule } from './tags/tags.module';
 
 @Module({
   imports: [
-    TypegooseModule.forRoot("mongodb://root:94682664@101.132.24.206:27017/nest?authSource=admin", {
+    TypegooseModule.forRoot("mongodb://localhost:27017/nest", {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true
